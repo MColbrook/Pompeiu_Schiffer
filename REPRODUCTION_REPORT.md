@@ -6,42 +6,7 @@
 **Clean packaged source-to-certificate reproduction:** **PASS** — Slurm job `32612929` completed `0:0`  
 **Overall manifest-hardened release gate:** **PASS**
 
-> **Fail-closed current status.**  Slurm job `32612504` regenerated one
-> 192-bit and two 256-bit complete audits from the frozen manifest-hardened
-> source and frozen inverse.  The resulting 24-file candidate certificate has
-> SHA-256
-> `95d06a084d737c478118b7b8254836e57df39373da850985360a1a1068d9cae2`.
-> Its ZIP structure, both manifests, exact authenticated-audit checker,
-> symbolic suite, compiled smoke suite, nested-`SHA256SUMS` adversarial
-> regression, and exact closing inequalities have passed.  A clean extraction
-> of those exact ZIP bytes ran `THREADS=80 ./reproduce.sh` as job `32612929`
-> on `pvc-s-36`.  The job completed with exit code `0:0`; all three regenerated
-> audits matched their packaged counterparts byte-for-byte, the exact checker
-> printed its scoped `PROVED` conclusion, and the reproduction script printed
-> both its frozen-proof-input and clean packaged-reproduction PASS markers.
-> This closes the mandated clean-extraction gate for the exact candidate ZIP.
-> It is a same-implementation reproduction, not an independent implementation.
-
 ## Current manifest-hardened release
-
-### Defect repaired and scope of the repair
-
-An independent review found that the first repaired checker excluded every
-regular file whose basename was `SHA256SUMS` when constructing the actual file
-set.  Consequently, an unlisted file such as `junk/SHA256SUMS` could evade the
-claimed exact-file allowlist.  The authentic first-repair archive contained
-exactly its expected 24 members and no such file, so this validation-contract
-defect did not alter a proof source, numerical leaf, support term, exact
-inequality, or the theorem arithmetic.  It nevertheless prevented that archive
-from being described as fully fail-closed.
-
-The checker now excludes only the root-relative path `SHA256SUMS`, and the
-compiled smoke suite requires rejection of an unlisted nested file with that
-basename.  The MPFR backend also now terminates unless
-`mpfr_buildopt_tls_p()` attests a thread-safe TLS build.  Every complete audit
-records `provenance.mpfr_buildopt_tls_p=true`, and the exact checker requires
-that field.  No numerical constant, exact centre byte, frozen-inverse byte,
-support cutoff, norm weight, or radii-polynomial formula was changed.
 
 ### Frozen identities
 
