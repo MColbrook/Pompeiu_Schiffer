@@ -2,6 +2,8 @@
 
 This compact project performs the final computer-validation stage near the supplied 10-fold analytic candidate. Its target is a noncircular, bounded, simply connected planar domain with real-analytic Jordan boundary whose indicator Fourier transform vanishes on a circle.
 
+The complete computer-assisted proof artefact, including the independently executable verifier, rigorous certificates, source code, and reproduction instructions, is archived at Zenodo: DOI: 10.5281/zenodo.21765287.
+
 No residual or floating-point scout is a proof. The `PROVED` status requires every finite, omitted-row, cross, infinite-tail, nonlinear, radii, and geometry obligation to be enclosed. `verify_certificate.py` authenticates and aggregates the packaged audit leaves and checks the final exact inequalities; it neither regenerates those leaves nor mechanically verifies the analytic prose. `reproduce.sh` separately checks the frozen-source-and-authenticated-inverse-to-audit computation. A completed rigorous bound or lemma failure must be reported as a typed `FAILED` certificate; malformed or unsupported inputs instead terminate nonzero.
 
 ## One production path
