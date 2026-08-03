@@ -1,0 +1,371 @@
+Pompeiu regular validation: manifest-hardened audit-generation provenance
+=================================================================
+
+Current provenance captured (UTC): 2026-08-02T02:04:42Z
+
+Logical gate
+------------
+
+Manifest-hardened source-to-audit generation: PASS.
+  Slurm job 32612504 ended COMPLETED with exit code 0:0.
+Clean reproduction from the final packaged certificate ZIP: PENDING.
+
+The PASS above authenticates the manifest-hardened generation stage only. It
+is not a
+standalone theorem claim and does not authenticate a certificate archive that
+has not yet been staged, hashed, extracted cleanly, and reproduced with
+`THREADS=80 ./reproduce.sh`. Any failure of that remaining packaged-
+reproduction gate must leave the manifest-hardened certificate unproved.
+
+Current cryptographic identities
+--------------------------------
+
+SHA-256  a30353f226a96c88a3d7e8b54b9d29d000c884fadb6cc52b47f176a874d73d29
+          data/center_L60_S40_R30.hex (exact hexadecimal binary64 centre)
+SHA-256  2057deab6a10db09c8df250205f6a52807b5cde5ffba899a9bdbac7be3749ed5
+          source_manifest.txt (exact manifest-hardened frozen validation sources)
+SHA-256  aa2de444bcae9e0c9bdf8afc8f5290ef5c363d84caf1c1de2df31fe569f9ea1c
+          data/approx_inverse.bin (48,846,752-byte frozen binary64 inverse)
+SHA-256  839e714dff2a00f5740c587a97a9bdf983fecab47ea9bab3cffa045cf1e63ce4
+          ephemeral force-built work/interval_assemble
+SHA-256  17980dacd8e237c230c979a2a033a5be6a4ea6e3d4a55bc90af5a8241467f3dc
+          generated 192-bit interval payload
+SHA-256  5ab2f7297b52811bd78187f074ff9c28950216fdfbbfeba3c5264459915b5439
+          each generated 256-bit interval payload
+SHA-256  3bf1af9b3334f33c7e0e53f3c3377d1330e6dde0a3a335573442d951c89aeb9a
+          regenerated audit_mpfr_192.json
+SHA-256  0012f9e23bb636596719e7e7e10193728950ef84bc4f26a8aa1972a49eee3922
+          regenerated audit_mpfr_256a.json
+SHA-256  0012f9e23bb636596719e7e7e10193728950ef84bc4f26a8aa1972a49eee3922
+          regenerated audit_mpfr_256b.json (byte-identical distinct file)
+
+The frozen inverse is the exact file recovered without alteration from
+`pompeiu_regular_validation/work/final_inverse.bin` in the immutable
+original archive, whose SHA-256 is
+1f1153b6b00b239146f9ce45ce7d092acdb4abb20399da1a63ef445293125845.
+No inverse was regenerated or substituted in job 32612504. The final
+manifest-hardened
+certificate ZIP and its fresh SHA256SUMS did not yet exist at this capture
+point and therefore have no identity asserted here.
+
+Manifest-hardened Slurm allocation
+-------------------------
+
+Cluster: Cambridge CSD3 Dawn
+Job/name: 32612504 / pompeiu-hardened-generate
+User/account/QOS: gs852 / airr-p67-dawn-gpu / gpu1
+Partition/node: pvc9 / pvc-s-247.data.cluster
+Slurm accounting displayed in BST:
+  submit 2026-08-02T02:17:02; start 2026-08-02T02:25:22;
+  end 2026-08-02T03:04:42.
+Equivalent UTC:
+  submit 2026-08-02T01:17:02Z; allocation start 2026-08-02T01:25:22Z;
+  end 2026-08-02T02:04:42Z.
+The job payload printed its post-preflight generation start as
+  2026-08-02T01:27:27Z.
+Slurm elapsed/time limit: 00:39:20 / 02:00:00
+Shape: 1 exclusive node, 1 task, 96 CPUs, 96 CPUs per task
+Memory: 1,027,200 MB allocated (--mem=0); no swap
+GRES: 4 GPUs allocated by the partition; the validator used CPU/MPFR code
+      and did not execute GPU kernels.
+Validator thread count: 80
+
+Captured hardware
+-----------------
+
+Architecture/byte order: x86_64 / little endian
+CPU: Intel(R) Xeon(R) Platinum 8468; 96 CPUs online; 2 sockets;
+     48 cores per socket; 1 hardware thread per core; 2 NUMA nodes
+Cache: L1d 4.5 MiB (96), L1i 3 MiB (96), L2 192 MiB (96), L3 210 MiB (2)
+Memory snapshot before the production audits: 1.0 TiB total, 11 GiB used,
+  968 GiB free, 996 GiB available; no swap
+Slurm batch-step maximum RSS: 203,606,608 K
+
+Toolchain and linked numerical libraries
+----------------------------------------
+
+Force-build compiler:
+  g++ (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+Compile command:
+  /usr/bin/g++ -O3 -std=c++17 -Wall -Wextra -Wpedantic -fopenmp
+    -frounding-math -fno-fast-math -ffp-contract=off
+    src/interval_assemble.cpp -o work/interval_assemble
+    -fopenmp -lmpfr -lgmp
+MPFR: 4.2.1; audit backend MPFR with directed RNDD/RNDU rounding
+MPFR TLS build attestation: mpfr_buildopt_tls_p=1; each audit records true
+GMP: 6.3.0
+Python: 3.9.25
+NumPy: 1.23.5
+
+Loaded modules:
+  rhel9/global
+  rhel9/slurm
+  dawn-env-rhel9/2025-03-23
+  rhel9/default-dawn
+  glibc/2.34/gcc/wzlt7jl4
+  gcc-runtime/14.2.0/gcc/nykri6wk
+  gmp/6.3.0/gcc/fi6upmd7
+  mpfr/4.2.1/gcc/jrfmlssl
+
+The force-built assembler resolved:
+  libmpfr.so.6 =>
+    /usr/local/dawn/software/spack-rocky9/opt-dawn-2025-03-23/
+    linux-rocky9-sapphirerapids/gcc-14.2.0/mpfr-4.2.1-
+    jrfmlssluqvvajqswhlylrsvk3spmok5/lib/libmpfr.so.6
+  libgmp.so.10 =>
+    /usr/local/dawn/software/spack-rocky9/opt-dawn-2025-03-23/
+    linux-rocky9-sapphirerapids/gcc-14.2.0/gmp-6.3.0-
+    fi6upmd7j77fvsrvrjiucehxcnstpsfb/lib/libgmp.so.10
+  libstdc++.so.6, libgomp.so.1, libgcc_s.so.1 =>
+    /usr/local/dawn/software/spack-rocky9/opt-dawn-2025-03-23/
+    linux-rocky9-sapphirerapids/gcc-14.2.0/gcc-runtime-14.2.0-
+    nykri6wkks2xnqhktr6z3vifglwzvbiv/lib/
+  libm.so.6, libc.so.6, ld-linux-x86-64.so.2 => /lib64
+Because the shipped inverse was reused, NumPy/LAPACK did not select a new
+proof input.
+
+Deterministic execution contract
+--------------------------------
+
+OMP_NUM_THREADS=80
+OMP_DYNAMIC=FALSE
+OMP_PROC_BIND=FALSE
+OMP_PLACES=cores
+OMP_MAX_ACTIVE_LEVELS=1
+MKL_NUM_THREADS=1
+MKL_DYNAMIC=FALSE
+OPENBLAS_NUM_THREADS=1
+BLIS_NUM_THREADS=1
+NUMEXPR_NUM_THREADS=1
+CXX=/usr/bin/g++
+Core dumps disabled with `ulimit -c 0`.
+
+Preflight and generation outcomes
+---------------------------------
+
+`sha256sum --strict -c source_manifest.txt`: PASS (10/10 members)
+Frozen centre and inverse identity checks: PASS
+Force-build: PASS
+`python3 tests/symbolic.py`: PASS
+`python3 tests/smoke.py`: PASS, including the complete small tail path,
+the nested-`SHA256SUMS` rejection regression, and TLS provenance checks
+`make stats`: PASS, 2,961 / 3,000 nonblank noncomment source lines
+192-bit complete audit: PASS
+256-bit complete audit A: PASS
+256-bit complete audit B: PASS
+256-bit interval SHA-256 equality: PASS
+256-bit audit JSON byte identity: PASS
+Audit canonicalisation and bound metadata checks: PASS
+Job terminal state: COMPLETED, exit 0:0
+
+Relative to the first repaired certificate, recursive parsed comparison found
+exactly three structural changes per audit: `source_sha256` and
+`provenance.source_manifest_sha256` changed from
+36217e3c75ef53876ed81a424f78be3fb077d9bedff64427b163a4a421382743 to
+2057deab6a10db09c8df250205f6a52807b5cde5ffba899a9bdbac7be3749ed5,
+and `provenance.mpfr_buildopt_tls_p=true` was added. Every numerical interval,
+aggregate, support entry, witness, and other metadata leaf is unchanged.
+
+Measured manifest-hardened generation resource use
+-----------------------------------------
+
+192-bit interval assembly:
+  wall 0:53.50; user 2,525.59 s; system 17.78 s; mean CPU 4,753%;
+  maximum RSS 6,997,744 KiB; swaps 0; exit status 0
+192-bit complete certification:
+  wall 11:18.58; user 32,242.87 s; system 1,179.20 s; mean CPU 4,925%;
+  maximum RSS 202,449,084 KiB; swaps 0; exit status 0
+256-bit interval assembly A:
+  wall 0:53.50; user 2,596.13 s; system 16.51 s; mean CPU 4,883%;
+  maximum RSS 6,994,104 KiB; swaps 0; exit status 0
+256-bit complete certification A:
+  wall 11:27.77; user 32,781.80 s; system 860.59 s; mean CPU 4,891%;
+  maximum RSS 199,950,196 KiB; swaps 0; exit status 0
+256-bit interval assembly B:
+  wall 0:54.95; user 2,581.10 s; system 17.71 s; mean CPU 4,729%;
+  maximum RSS 6,995,656 KiB; swaps 0; exit status 0
+256-bit complete certification B:
+  wall 11:43.80; user 33,010.71 s; system 821.15 s; mean CPU 4,806%;
+  maximum RSS 199,250,736 KiB; swaps 0; exit status 0
+
+Historical immutable-predecessor provenance (job 32482157)
+============================================================
+
+Everything below this notice refers only to the immutable predecessor run.
+Its `work/` and `results/` paths, source hash, audit hashes, and resource
+measurements are historical and do not override the manifest-hardened status
+above.
+
+Provenance captured (UTC): 2026-07-31T18:28:42Z
+The theorem status and final rounded constants are authoritative in
+certificate.json and proof_report.md.  This file records the environment in
+which the audit payloads were produced; it makes no independent theorem claim.
+
+Cryptographic identities
+------------------------
+
+SHA-256  a30353f226a96c88a3d7e8b54b9d29d000c884fadb6cc52b47f176a874d73d29
+          data/center_L60_S40_R30.hex (the hexadecimal binary64 centre)
+SHA-256  4a8d9e6fddc9bafb1c7e1e6ca62acf11f7f529ea466d5ae646c811bd3a8ac9f6
+          source_manifest.txt (the exact frozen validation sources)
+SHA-256  83cedb2649adc9881cfb31087f6fd01602374cef777fc37f0be5cf17eeaedeb5
+          work/interval_assemble (production executable)
+SHA-256  aa2de444bcae9e0c9bdf8afc8f5290ef5c363d84caf1c1de2df31fe569f9ea1c
+          work/final_inverse.bin (binary64 point inverse)
+SHA-256  17980dacd8e237c230c979a2a033a5be6a4ea6e3d4a55bc90af5a8241467f3dc
+          work/final_intervals_192.bin
+SHA-256  06ce854e4ff187a9293244d52e4470dfee463ce6a9250596ff438f08e9493ee0
+          results/audit_mpfr_192.json
+SHA-256  5ab2f7297b52811bd78187f074ff9c28950216fdfbbfeba3c5264459915b5439
+          work/final_intervals_256a.bin
+SHA-256  17aa7fa0b48b14426c7d9e68e48e31853ef85fc54c5358d57d660c149ba912dd
+          results/audit_mpfr_256a.json
+SHA-256  17aa7fa0b48b14426c7d9e68e48e31853ef85fc54c5358d57d660c149ba912dd
+          results/audit_mpfr_256b.json (distinct file, byte-identical payload)
+
+SHA256SUMS is the authoritative manifest for files shipped in the archive.
+
+Slurm allocation
+----------------
+
+Cluster: csd3
+Job: 32482157 (pompeiu-validate)
+User/account/QOS: gs852 / airr-p67-dawn-gpu / gpu1
+Partition/node: pvc9 / pvc-s-113 (pvc-s-113.data.cluster)
+Submit/start: 2026-07-31T17:00:01 / 2026-07-31T17:00:03
+Time limit: 12:00:00
+Shape: 1 node, 1 task, 96 CPUs, 96 CPUs per task, exclusive
+Memory: 1027200M allocated (all node memory requested with --mem=0)
+GRES: 4 Intel GPUs, IDs 0-3.  They were allocated by the partition but the
+      validator is CPU/MPFR code and did not execute GPU kernels.
+Working directory: /home/gs852/pompeiu_regular_validation
+Allocation command:
+  srun --account=AIRR-P67-DAWN-GPU --partition=pvc9 --qos=gpu1 \
+    --nodes=1 --ntasks=1 --cpus-per-task=96 --gres=gpu:4 --exclusive \
+    --mem=0 --time=12:00:00 --job-name=pompeiu-validate --pty bash -l
+
+Host and operating system
+-------------------------
+
+hostname -f: pvc-s-113.data.cluster
+uname -a: Linux pvc-s-113 5.14.0-570.128.1.el9_6.x86_64 #1 SMP
+  PREEMPT_DYNAMIC Thu Jul 16 03:03:31 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+OS release reported PRETTY_NAME="Rocky Linux 9.8 (Blue Onyx)" and
+VERSION_ID="9.6"; both strings are retained because that is the verbatim node
+image metadata.
+Architecture/byte order: x86_64 / little endian
+CPU: Intel(R) Xeon(R) Platinum 8468; 96 CPUs online; 2 sockets;
+     48 cores per socket; 1 thread per core; 2 NUMA nodes
+Cache: L1d 4.5 MiB (96), L1i 3 MiB (96), L2 192 MiB (96), L3 210 MiB (2)
+RAM snapshot at 2026-07-31T18:28Z: 1.0 TiB total, 186 GiB used,
+  721 GiB free, 820 GiB available; no swap
+
+Toolchain and numerical libraries
+---------------------------------
+
+C++ compiler embedded in audit:
+  GCC 11.5.0 20240719 (Red Hat 11.5.0-14)
+Compile command contract:
+  g++ -O3 -std=c++17 -Wall -Wextra -Wpedantic -fopenmp \
+    -frounding-math -fno-fast-math -ffp-contract=off \
+    $(pkg-config --cflags mpfr) src/interval_assemble.cpp \
+    -o work/interval_assemble -fopenmp $(pkg-config --libs mpfr)
+MPFR: 4.2.1; audit backend="MPFR", rounding="directed"
+GMP: 6.3.0
+Python: 3.9.25, built with GCC 11.5.0 20240719 (Red Hat 11.5.0-14)
+NumPy: 1.23.5
+NumPy BLAS/LAPACK: FlexiBLAS 3.0.4 in /usr/lib64, active system backend
+  OPENBLAS-OPENMP (libflexiblas_openblas-openmp.so); CBLAS available.
+  NETLIB was installed but was not the active backend.  The binary64 point
+  inverse was selected through this NumPy BLAS/LAPACK stack.
+
+Base modules inherited by a fresh allocation step:
+  rhel9/global
+  rhel9/slurm
+  dawn-env-rhel9/2025-03-23
+  rhel9/default-dawn
+The MPFR development module used to expose headers/pkg-config is
+  mpfr/4.2.1/gcc/jrfmlssl
+and it loads GMP 6.3.0.  The already-built production executable records the
+actual validation-time dependency paths below, which are authoritative even
+where the current module view has subsequently moved.
+
+ldd work/interval_assemble (validation executable):
+  libmpfr.so.6 => /usr/local/software/spack/csd3-rhel9/spack-views/
+    csd3-rhel9-2024-06-01/mpfr-4.2.1/gcc-12.3.0/
+    c37bs27sybufaxj25363byqwctkr6pi2/lib/libmpfr.so.6
+  libgmp.so.10 => /usr/local/software/spack/csd3-rhel9/spack-views/
+    csd3-rhel9-2024-06-01/gmp-6.3.0/gcc-12.3.0/
+    ndigow6ycvz34ca76dhkn5l4vvxtfnq6/lib/libgmp.so.10
+  libstdc++.so.6, libgomp.so.1, libgcc_s.so.1 =>
+    /usr/local/software/spack/csd3-rhel9/spack-views/
+    csd3-rhel9-2024-06-01/gcc-runtime-12.3.0/gcc-12.3.0/
+    hupxrvjfylquk4jwnct6x67p2booct7l/lib/
+  libm.so.6, libc.so.6, ld-linux-x86-64.so.2 => /lib64
+
+Deterministic execution contract
+--------------------------------
+
+OMP_NUM_THREADS=80
+OMP_DYNAMIC=FALSE
+OMP_PROC_BIND=FALSE
+OMP_PLACES=cores
+OMP_MAX_ACTIVE_LEVELS=1
+OMP_NESTED is not set; nesting is disabled by OMP_MAX_ACTIVE_LEVELS=1.
+MKL_NUM_THREADS=1
+MKL_DYNAMIC=FALSE
+OPENBLAS_NUM_THREADS=1
+BLIS_NUM_THREADS=1
+NUMEXPR_NUM_THREADS=1
+Core dumps are disabled by reproduce.sh with `ulimit -c 0`.
+Binary floating-point requirement: little-endian IEEE-754 binary64 with a
+53-bit significand.  MPFR runs: 192 bits, 256 bits, then a same-thread-count
+deterministic 256-bit repeat.  Independent mode/column work is OpenMP-parallel;
+all certificate reductions use a deterministic order.
+
+Measured full-run resource use
+------------------------------
+
+192-bit interval assembly:
+  command: work/interval_assemble data/center_L60_S40_R30.hex \
+           work/final_intervals_192.bin 192
+  wall 0:58.54; user 2658.58 s; system 20.37 s; mean CPU 4575%;
+  maximum RSS 6,999,440 KiB; swaps 0; exit status 0
+
+192-bit complete certification:
+  command: python3 src/certify.py --center data/center_L60_S40_R30.hex \
+           --intervals work/final_intervals_192.bin \
+           --work work/final_nested_192 --output results/audit_mpfr_192.json \
+           --binary work/interval_assemble --inverse work/final_inverse.bin \
+           --reuse-inverse --complete-audit --source-manifest source_manifest.txt
+  wall 11:37.11; user 32365.42 s; system 855.67 s; mean CPU 4765%;
+  maximum RSS 200,725,368 KiB; swaps 0; exit status 0
+
+256-bit interval assembly A:
+  command: work/interval_assemble data/center_L60_S40_R30.hex \
+           work/final_intervals_256a.bin 256
+  wall 0:56.08; user 2625.06 s; system 18.64 s; mean CPU 4713%;
+  maximum RSS 6,990,244 KiB; swaps 0; exit status 0
+
+256-bit complete certification A (reused the exact point inverse above):
+  command: python3 src/certify.py --center data/center_L60_S40_R30.hex \
+           --intervals work/final_intervals_256a.bin \
+           --work work/final_nested_256a --output results/audit_mpfr_256a.json \
+           --binary work/interval_assemble --inverse work/final_inverse.bin \
+           --reuse-inverse --complete-audit \
+           --source-manifest source_manifest.txt
+  wall 11:50.47; user 33094.47 s; system 869.04 s; mean CPU 4780%;
+  maximum RSS 200,449,704 KiB; swaps 0; exit status 0
+
+256-bit complete certification B (independent work directory, same inverse):
+  command: python3 src/certify.py --center data/center_L60_S40_R30.hex \
+           --intervals work/final_intervals_256b.bin \
+           --work work/final_nested_256b --output results/audit_mpfr_256b.json \
+           --binary work/interval_assemble --inverse work/final_inverse.bin \
+           --reuse-inverse --complete-audit \
+           --source-manifest source_manifest.txt
+  wall 11:49.25; user 33111.68 s; system 887.22 s; mean CPU 4793%;
+  maximum RSS 201,734,108 KiB; swaps 0; exit status 0
+
+Reproduction starts with `THREADS=80 ./reproduce.sh`;
+the thread count is configurable from 1 through 96.

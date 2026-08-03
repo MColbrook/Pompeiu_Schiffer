@@ -1,0 +1,66 @@
+{
+  "status": "PROVED",
+  "input_sha256": "a30353f226a96c88a3d7e8b54b9d29d000c884fadb6cc52b47f176a874d73d29",
+  "input_path": "data/center_L60_S40_R30.hex",
+  "source_sha256": "2057deab6a10db09c8df250205f6a52807b5cde5ffba899a9bdbac7be3749ed5",
+  "inverse_sha256": "aa2de444bcae9e0c9bdf8afc8f5290ef5c363d84caf1c1de2df31fe569f9ea1c",
+  "backend": {
+    "name": "MPFR",
+    "version": "4.2.1",
+    "precision_bits": 256,
+    "rounding": "directed"
+  },
+  "parameters": {
+    "L": 60,
+    "S": 40,
+    "R": 30,
+    "J": 30,
+    "rho": "1.05",
+    "dimension": 2471
+  },
+  "bounds": {
+    "Y": {"lo": "0", "hi": "0.000000000159"},
+    "Z": {"lo": "0", "hi": "0.621"},
+    "C2": {"lo": "0", "hi": "122"},
+    "C3": {"lo": "0", "hi": "0.012"},
+    "radius": "0.000001",
+    "univalence_sum": {"lo": "0", "hi": "0.65"},
+    "p1_abs_lower": {"lo": "12", "hi": "13"}
+  },
+  "components": {
+    "finite_Y": {"lo": "0", "hi": "0.000000000139"},
+    "omitted_Y": {"lo": "0", "hi": "0.0000000000195"},
+    "finite_Z": {"lo": "0", "hi": "0.0000000085"},
+    "finite_to_tail_Z": {"lo": "0", "hi": "0.039"},
+    "g_tail_Z": {"lo": "0", "hi": "0.169"},
+    "p_tail_Z": {"lo": "0", "hi": "0.621"},
+    "support_cutoffs": {
+      "finite_columns": 2471,
+      "g_boundary_columns": 23941,
+      "p_boundary_first": 31,
+      "p_boundary_last": 150,
+      "far_g_min_D": 684,
+      "shape_shift_start": 151
+    }
+  },
+  "checks": {
+    "radii_polynomial_upper": "-0.0000003787",
+    "derivative_upper": "-0.3787",
+    "univalence_margin_lower": "0.35",
+    "passed": true
+  },
+  "runs": {
+    "mpfr_192": {
+      "path": "audit_mpfr_192.json",
+      "sha256": "3bf1af9b3334f33c7e0e53f3c3377d1330e6dde0a3a335573442d951c89aeb9a"
+    },
+    "mpfr_256a": {
+      "path": "audit_mpfr_256a.json",
+      "sha256": "0012f9e23bb636596719e7e7e10193728950ef84bc4f26a8aa1972a49eee3922"
+    },
+    "mpfr_256b": {
+      "path": "audit_mpfr_256b.json",
+      "sha256": "0012f9e23bb636596719e7e7e10193728950ef84bc4f26a8aa1972a49eee3922"
+    }
+  }
+}
